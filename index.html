@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushant Singh Rajput | Cosmic Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0c1445;
+            --secondary: #1a237e;
+            --accent: #4fc3f7;
+            --light: #e3f2fd;
+            --dark: #0d1b2a;
+            --gold: #ffd700;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Stars background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                radial-gradient(2px 2px at 50px 120px, #fff, transparent),
+                radial-gradient(2px 2px at 90px 40px, #fff, transparent),
+                radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+                radial-gradient(2px 2px at 160px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 190px 110px, #fff, transparent),
+                radial-gradient(2px 2px at 220px 60px, #fff, transparent),
+                radial-gradient(2px 2px at 250px 130px, #fff, transparent),
+                radial-gradient(2px 2px at 280px 90px, #fff, transparent),
+                radial-gradient(2px 2px at 310px 40px, #fff, transparent),
+                radial-gradient(2px 2px at 340px 120px, #fff, transparent),
+                radial-gradient(2px 2px at 370px 70px, #fff, transparent),
+                radial-gradient(2px 2px at 400px 140px, #fff, transparent);
+            background-size: 400px 200px;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .pfp {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(79, 195, 247, 0.5);
+            margin-bottom: 20px;
+            background: var(--dark);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--light);
+            opacity: 0.9;
+        }
+
+        .time-counter {
+            background: rgba(13, 27, 42, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+        }
+
+        .time-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .time-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .time-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-section {
+            background: rgba(13, 27, 42, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        .about-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .movies-section {
+            margin: 40px 0;
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .movie-card {
+            background: rgba(13, 27, 42, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--accent);
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(79, 195, 247, 0.4);
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .movie-title {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .quotes-section {
+            margin: 40px 0;
+        }
+
+        .quote-container {
+            background: rgba(13, 27, 42, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+        }
+
+        .quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .quote-author {
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(13, 27, 42, 0.8);
+            color: var(--light);
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid var(--accent);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            color: var(--gold);
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .time-value {
+                font-size: 2rem;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+            }
+            
+            .about-content {
+                font-size: 1rem;
+            }
+            
+            .quote {
+                font-size: 1.2rem;
+            }
+            
+            .pfp {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .time-title {
+                font-size: 1.4rem;
+            }
+            
+            .time-value {
+                font-size: 1.6rem;
+            }
+            
+            .time-unit {
+                min-width: 50px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .pfp {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-container">
+                <img src="https://i.ibb.co/7yRqXq0/sushant-pfp.jpg" alt="Sushant Singh Rajput" class="pfp" onerror="this.src='https://via.placeholder.com/180/0c1445/FFFFFF?text=SSR'">
+                <h1>Sushant Singh Rajput</h1>
+                <p class="subtitle">Actor • Dreamer • Stargazer</p>
+            </div>
+            
+            <div class="time-counter">
+                <h2 class="time-title">Time Since You Left Earth for the Stars</h2>
+                <div class="time-display" id="countdown">
+                    <div class="time-unit">
+                        <div class="time-value" id="days">00</div>
+                        <div class="time-label">Days</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="hours">00</div>
+                        <div class="time-label">Hours</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="minutes">00</div>
+                        <div class="time-label">Minutes</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="seconds">00</div>
+                        <div class="time-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="about-section">
+            <h2 class="section-title">A Cosmic Soul</h2>
+            <div class="about-content">
+                <p>Sushant Singh Rajput was not just an exceptionally talented actor but also a passionate astronomer whose curiosity about the universe knew no bounds. His fascination with space and celestial bodies was evident in his personal life, where he often spoke about the beauty of the cosmos and our place within it.</p>
+                <br>
+                <p>He pursued his passion for astronomy alongside his acting career, even taking courses at NASA and building his own observatory at home. Sushant believed that understanding the universe helped him understand himself better. His journey reminds us that true talent lies in the ability to dream beyond boundaries - both on screen and among the stars.</p>
+                <br>
+                <p>Though he left Earth on June 14, 2020, his spirit continues to inspire millions to look up at the night sky with wonder and pursue their passions with unwavering dedication. As he once said, "The universe is not outside of you. Look inside yourself; everything that you want, you already are."</p>
+            </div>
+        </section>
+
+        <section class="movies-section">
+            <h2 class="section-title">Iconic Performances</h2>
+            <div class="movies-grid">
+                <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Kai_Po_Che!', '_blank')">
+                    <img src="https://i.ibb.co/7yRqXq0/kai-po-che.jpg" alt="Kai Po Che!" class="movie-poster" onerror="this.src='https://via.placeholder.com/180x270/0c1445/FFFFFF?text=Kai+Po+Che'">
+                    <div class="movie-title">Kai Po Che!</div>
+                </div>
+                <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/MS_Dhoni:_The_Untold_Story', '_blank')">
+                    <img src="https://i.ibb.co/7yRqXq0/ms-dhoni.jpg" alt="MS Dhoni: The Untold Story" class="movie-poster" onerror="this.src='https://via.placeholder.com/180x270/0c1445/FFFFFF?text=MS+Dhoni'">
+                    <div class="movie-title">MS Dhoni: The Untold Story</div>
+                </div>
+                <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Chhichhore', '_blank')">
+                    <img src="https://i.ibb.co/7yRqXq0/chhichhore.jpg" alt="Chhichhore" class="movie-poster" onerror="this.src='https://via.placeholder.com/180x270/0c1445/FFFFFF?text=Chhichhore'">
+                    <div class="movie-title">Chhichhore</div>
+                </div>
+                <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Detective_Byomkesh_Bakshy!', '_blank')">
+                    <img src="https://i.ibb.co/7yRqXq0/byomkesh.jpg" alt="Detective Byomkesh Bakshy!" class="movie-poster" onerror="this.src='https://via.placeholder.com/180x270/0c1445/FFFFFF?text=Byomkesh'">
+                    <div class="movie-title">Detective Byomkesh Bakshy!</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quotes-section">
+            <h2 class="section-title">Words of Wisdom</h2>
+            <div class="quote-container">
+                <p class="quote">"Don't run behind success. Run behind excellence and success will follow."</p>
+                <p class="quote-author">- Sushant Singh Rajput</p>
+            </div>
+            <div class="quote-container">
+                <p class="quote">"The only way to do great work is to love what you do."</p>
+                <p class="quote-author">- Sushant Singh Rajput</p>
+            </div>
+            <div class="quote-container">
+                <p class="quote">"Your time is limited, so don't waste it living someone else's life."</p>
+                <p class="quote-author">- Sushant Singh Rajput</p>
+            </div>
+        </section>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/sushantsinghrajput/" target="_blank" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/SushantSinghRajput" target="_blank" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCJzLt7cLqF8VJvFq7Q1XqJw" target="_blank" class="social-link" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com/itsSSR" target="_blank" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <footer>
+            <p>Forever among the stars • June 14, 2020</p>
+            <p>This tribute celebrates the life and legacy of Sushant Singh Rajput</p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const departureDate = new Date('June 14, 2020 00:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = now - departureDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown immediately and then every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
