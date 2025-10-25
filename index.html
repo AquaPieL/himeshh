@@ -30,26 +30,63 @@
       overflow-x: hidden;
     }
 
+    /* Nebula Glow - Deep Space Atmosphere */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(79, 195, 247, 0.08), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.06), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(138, 43, 226, 0.04), transparent 50%);
+      z-index: -3;
+    }
+
+    /* Animated Drifting Stars */
     body::before {
       content: "";
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-image: 
-        radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 25% 70%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 40% 40%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 60% 80%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 80% 30%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 90% 60%, #fff, transparent);
-      background-size: 200px 200px;
-      opacity: 0.6;
-      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+        radial-gradient(2px 2px at 25% 70%, #aaa, transparent),
+        radial-gradient(2px 2px at 40% 40%, #fff, transparent),
+        radial-gradient(2px 2px at 60% 80%, #ddd, transparent),
+        radial-gradient(2px 2px at 80% 30%, #fff, transparent),
+        radial-gradient(2px 2px at 90% 60%, #bbb, transparent),
+        radial-gradient(1.5px 1.5px at 5% 10%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 30% 50%, #ccc, transparent),
+        radial-gradient(1.5px 1.5px at 70% 20%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 95% 90%, #eee, transparent),
+        radial-gradient(1px 1px at 15% 85%, #fff, transparent),
+        radial-gradient(1px 1px at 85% 15%, #ddd, transparent);
+      background-size: 100% 100%;
+      opacity: 0.85;
+      z-index: -2;
+      animation: drift 150s linear infinite;
+    }
+
+    @keyframes drift {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      100% {
+        transform: translate(-15px, -15px) rotate(0.8deg);
+      }
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     header {
@@ -249,47 +286,40 @@
     </header>
 
     <div class="about">
-      <p>A brilliant actor and passionate astronomer who saw the universe in everything. He left Earth on June 14, 2020 — not gone, but among the stars he loved.</p>
+      <p>A brilliant, self-made polymath, Sushant Singh Rajput was an inspiring actor and an ardent astrophysicist who relentlessly pursued knowledge and embodied the excitement of living life as a process.</p>
     </div>
 
     <div class="quote-box">
-      <p class="quote">"Don't run behind success. Run behind excellence and success will follow."</p>
+      <p class="quote">Jis mehfil ne thukraya humko, kyun us mehfil ko yaad kare... aage lamhe bula rahe hai, aao unke saath chale. -PK.</p>
     </div>
 
     <section class="movies">
       <h2 style="text-align:center; font-size:1.8rem; margin-bottom:15px; color:var(--gold)">Iconic Roles</h2>
       <div class="movies-grid">
-        <!-- Kai Po Che! -->
         <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Kai_Po_Che!', '_blank')">
           <img src="img/kai.jpeg" class="poster" alt="Kai Po Che!">
           <div class="title">Kai Po Che!</div>
         </div>
-        <!-- MS Dhoni -->
         <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/MS_Dhoni:_The_Untold_Story', '_blank')">
           <img src="img/dhoni.jpeg" class="poster" alt="MS Dhoni">
           <div class="title">MS Dhoni</div>
         </div>
-        <!-- Chhichhore -->
         <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Chhichhore', '_blank')">
           <img src="img/chhichhore.jpeg" class="poster" alt="Chhichhore">
           <div class="title">Chhichhore</div>
         </div>
-        <!-- Kedarnath -->
         <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Kedarnath_(film)', '_blank')">
           <img src="img/kedarnath.jpeg" class="poster" alt="Kedarnath">
           <div class="title">Kedarnath</div>
         </div>
-        <!-- Dil Bechara -->
         <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Dil_Bechara', '_blank')">
           <img src="img/dil.jpeg" class="poster" alt="Dil Bechara">
           <div class="title">Dil Bechara</div>
         </div>
-        <!-- Detective Byomkesh Bakshy! -->
         <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Detective_Byomkesh_Bakshy!', '_blank')">
           <img src="img/byomkesh.jpeg" class="poster" alt="Detective Byomkesh Bakshy!">
           <div class="title">Byomkesh</div>
         </div>
-        <!-- Sonchiriya -->
         <div class="movie-card" onclick="window.open('https://en.wikipedia.org/wiki/Sonchiriya', '_blank')">
           <img src="img/sonchiriya.jpeg" class="poster" alt="Sonchiriya">
           <div class="title">Sonchiriya</div>
@@ -314,7 +344,7 @@
 
     <footer>
       <p>Forever among the stars • June 14, 2020</p>
-      <p>Created by Himesh Prasai</p>
+      <p>Made with ❤️ by Himeshh</p>
     </footer>
   </div>
 
