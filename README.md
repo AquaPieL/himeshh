@@ -1,5 +1,5 @@
 ## Made By
-**Himeshh**
+Himeshh
 ---
 > *This tribute is a labor of love, created to keep his spirit alive in the hearts of those who look up at the night sky and remember.*
 ---
